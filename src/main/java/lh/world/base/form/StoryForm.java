@@ -15,8 +15,10 @@ public class StoryForm extends BaseForm {
     private String picture;
 
     @NotBlank(message = "{story.description.notBlank}")
-    @Length(message = "{story.description.length}",max = 240)
+    @Length(message = "{story.description.length}", max = 240)
     private String description;
+
+    private Integer vote;
 
     public StoryForm() {
     }
@@ -25,6 +27,7 @@ public class StoryForm extends BaseForm {
         this.setId(story.getId());
         this.setPicture(story.getPicture());
         this.setDescription(story.getDescription());
+        this.setVote(story.getVote());
     }
 
     public Story asStory() {
@@ -35,6 +38,7 @@ public class StoryForm extends BaseForm {
         }
         story.setPicture(this.getPicture());
         story.setDescription(this.getDescription());
+        story.setVote(this.getVote());
         return story;
     }
 
@@ -52,5 +56,13 @@ public class StoryForm extends BaseForm {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getVote() {
+        return vote;
+    }
+
+    public void setVote(Integer vote) {
+        this.vote = vote;
     }
 }
