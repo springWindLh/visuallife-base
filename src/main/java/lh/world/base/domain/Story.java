@@ -17,6 +17,8 @@ public class Story extends CanLogicDelDomain {
     private String picture;
     @Column(name = "description")
     private String description;
+    @Column(name = "vote")
+    private Integer vote = 0;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -58,4 +60,11 @@ public class Story extends CanLogicDelDomain {
         this.user = user;
     }
 
+    public Integer getVote() {
+        return vote;
+    }
+
+    public void setVote(Integer vote) {
+        this.vote = vote;
+    }
 }
