@@ -54,4 +54,11 @@ public class StoryServiceImpl implements StoryService {
             }
         }
     }
+
+    @Override
+    public void remove(Long[] ids) {
+        for (Long id : ids) {
+            this.remove(id);
+        }
+    }
 }

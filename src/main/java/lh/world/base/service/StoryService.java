@@ -20,4 +20,6 @@ public interface StoryService {
     Page<Story> listByUser(User user, Query query, boolean isDeleted);
 
     void remove(Long id);
+
+    void remove(Long[] ids);
 }

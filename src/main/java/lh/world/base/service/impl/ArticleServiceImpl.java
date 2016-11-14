@@ -3,10 +3,10 @@ package lh.world.base.service.impl;
 import com.google.common.base.Strings;
 import lh.world.base.domain.Article;
 import lh.world.base.domain.User;
-import lh.world.base.repository.ArticleRepository;
-import lh.world.base.service.support.ServiceUtil;
 import lh.world.base.query.support.Query;
+import lh.world.base.repository.ArticleRepository;
 import lh.world.base.service.ArticleService;
+import lh.world.base.service.support.ServiceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -64,5 +64,12 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Page<Article> listByUser(User user, Query query, boolean isDeleted) {
         return articleRepository.queryByDelAndUser(isDeleted, user, query.getPageable());
+    }
+
+    @Override
+    public void remove(Long[] ids) {
+        for (Long id : ids) {
+            this.remove(id);
+        }
     }
 }

@@ -22,4 +22,6 @@ public interface ArticleService {
     Page<Article> listAll(Query query);
 
     void remove(Long id);
+
+    void remove(Long[] ids);
 }
